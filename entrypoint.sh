@@ -5,5 +5,5 @@ echo "2 $2"
 echo "3 $3"
 echo "4 $4"
 echo "5 $5"
-
+. $HOME/.poetry/env
 poetry run library archive --name $1 $2 $3 $4 

@@ -1,0 +1,11 @@
+name: test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: SPTKL/action-library@main
+        with:
+          name: dcp_commercialoverlay

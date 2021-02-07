@@ -1,15 +1,43 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Data Library'
+description: 'Data Library Update Operations'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  name:
+    description: 'Name of the dataset'
     required: true
-    default: 'World'
+    default: 'dcp_commercialoverlay'
+  output_format:
+    description: 'Output format, including [shapefile, csv, pgdump, geojson]'
+    required: true
+    default: 'shapefile csv pgdump geojson'
+  s3:
+    description: 'Upload to s3'
+    required: false
+    default: '--s3'
+  compress:
+    description: 'Compress to zip archive'
+    required: false
+    default: '--compress'
+  latest:
+    description: 'Tagging as latest'
+    required: false
+    default: '--latest'
+  version:
+    description: 'Version name'
+    required: false
+    default: 'latest'
+
 outputs:
   time: # id of output
     description: 'The time we greeted you'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.name }}
+    - ${{ inputs.output_format }}
+    - ${{ inputs.s3 }}
+    - ${{ inputs.compress }}
+    - ${{ inputs.latest }}
+    - ${{ inputs.version }}
+

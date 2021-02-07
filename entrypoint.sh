@@ -1,5 +1,9 @@
 #!/bin/sh -l
 
-echo "Hello $1"
-time=$(date)
-echo ::set-output name=time::$time
+echo "1 $1"
+echo "2 $2"
+echo "3 $3"
+echo "4 $4"
+echo "5 $5"
+
+poetry run library archive --name $1 $2 $3 $4 

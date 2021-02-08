@@ -1,8 +1,15 @@
 #!/bin/sh -l
 
-echo "1 $1"
-echo "2 $2"
-echo "3 $3"
-echo "4 $4"
-echo "5 $5"
-library archive --name $1 $2 $3 $4 
+echo
+echo "Name: $1"
+echo "Ouput Format(s): $2"
+echo "S3: $3"
+echo "Compress: $4"
+echo "Latest: $5"
+echo "Version: $6"
+echo
+
+for format in $2
+do
+  library archive --name $1 $format $2 $3 $4 $5
+done

@@ -20,19 +20,20 @@ jobs:
           s3: true
           compress: true
           output_format: shapefile csv pgdump
-     
-      - uses: SPTKL/action-library@main
-        id: process2
-        with:
-          name: nypl_libraries
-          latest: true
-          s3: true
-          compress: true
-          output_format: shapefile csv pgdump
 
       - name: show output
         run: |
           echo "${{ steps.process.outputs.show }}"
-          echo "${{ steps.process2.outputs.show }}"
+      
+      - uses: actions/checkout@v2
 
+      - uses: SPTKL/action-library@main
+        id: pluto
+        with:
+          path: dcp_mappluto.yml
+          latest: true
+          s3: true
+          compress: true
+          output_format: shapefile csv pgdump
+          version: 20v8
           

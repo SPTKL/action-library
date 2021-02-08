@@ -1,20 +1,17 @@
 #!/bin/bash
-name=$1
-output_format=$2
-if [ "$3" = "true" ] ; then s3="--s3"; else s3=''; fi
-if [ "$4" = "true" ] ; then compress="--compress"; else compress=''; fi
-if [ "$5" = "true" ] ; then latest="--latest"; else latest=''; fi
-if [ "$6" != "" ] ; then version="--version $6"; else version=''; fi
+if [ "$1" != "" ] ; then name="--name $1"; else name=''; fi
+if [ "$2" != "" ] ; then path="--path $2"; else path=''; fi
+if [ "$4" = "true" ] ; then s3="--s3"; else s3=''; fi
+if [ "$5" = "true" ] ; then compress="--compress"; else compress=''; fi
+if [ "$6" = "true" ] ; then latest="--latest"; else latest=''; fi
+if [ "$7" != "" ] ; then version="--version $7"; else version=''; fi
 
-for format in $2
+for format in $3
 do
-  library archive --name $name -o $format $s3 $compress $latest $version &
+  library archive --name $name --path $path -o $format $s3 $compress $latest $version &
 done
 
 wait
-library show --help
 
 show=$(library show $1 --json)
-echo "$show"
-
 echo "::set-output name=show::$show"

@@ -10,21 +10,25 @@ inputs:
     required: true
     default: 'shapefile csv pgdump geojson'
   s3:
-    description: 'Upload to s3'
+    description: 'Upload to s3 (true/false)'
     required: false
-    default: '--s3'
+    default: 'false'
   compress:
-    description: 'Compress to zip archive'
+    description: 'Compress to zip archive (true/false)' 
     required: false
-    default: '--compress'
+    default: 'false'
   latest:
-    description: 'Tagging as latest'
+    description: 'Tagging as latest (true/false)'
     required: false
-    default: '--latest'
+    default: 'false'
+  version:
+    description: 'Specify a version'
+    required: false
+    default: ''
 
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  show:
+    description: 'show what is avaiable'
 
 runs:
   using: 'docker'
@@ -35,3 +39,4 @@ runs:
     - ${{ inputs.s3 }}
     - ${{ inputs.compress }}
     - ${{ inputs.latest }}
+    - ${{ inputs.version }}

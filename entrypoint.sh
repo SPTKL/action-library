@@ -1,14 +1,17 @@
 #!/bin/bash
-
-echo
-echo "Name: $1"
-echo "Ouput Format(s): $2"
-echo "S3: $3"
-echo "Compress: $4"
-echo "Latest: $5"
-echo
+name=$1
+output_format=$2
+if [ "$3" = "true" ] ; then s3="--s3"; else s3=''; fi
+if [ "$4" = "true" ] ; then compress="--compress"; else compress=''; fi
+if [ "$5" = "true" ] ; then latest="--latest"; else latest=''; fi
+if [ "$6" != "" ] ; then version="--version $4"; else version=''; fi
 
 for format in $2
 do
-  library archive --name $1 -o $format $3 $4 $5
+  library archive --name $name -o $format $s3 $compress $latest $version &
 done
+
+wait
+
+show=$(library show --name $1)
+echo ::set-output name=show::$show

@@ -12,6 +12,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_S3_BUCKET: edm-recipes
     steps:
+      - uses: actions/checkout@v2
       - uses: SPTKL/action-library@main
         id: process
         with:
@@ -24,8 +25,6 @@ jobs:
       - name: show output
         run: |
           echo "${{ steps.process.outputs.show }}"
-      
-      - uses: actions/checkout@v2
 
       - uses: SPTKL/action-library@main
         id: pluto

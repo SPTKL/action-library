@@ -6,7 +6,6 @@ echo "Ouput Format(s): $2"
 echo "S3: $3"
 echo "Compress: $4"
 echo "Latest: $5"
-echo "Version: $6"
 echo
 
 for format in $2

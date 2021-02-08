@@ -21,10 +21,6 @@ inputs:
     description: 'Tagging as latest'
     required: false
     default: '--latest'
-  version:
-    description: 'Version name'
-    required: false
-    default: 'latest'
 
 outputs:
   time: # id of output
@@ -39,5 +35,3 @@ runs:
     - ${{ inputs.s3 }}
     - ${{ inputs.compress }}
     - ${{ inputs.latest }}
-    - ${{ inputs.version }}
-

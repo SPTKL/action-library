@@ -15,10 +15,9 @@ jobs:
       - uses: SPTKL/action-library@main
         id: process
         with:
-          name: bpl_libraries
+          name: dcp_commercialoverlay
           latest: true
           s3: true
-          version: testor
           compress: true
           output_format: shapefile csv pgdump
 

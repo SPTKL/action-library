@@ -14,4 +14,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_S3_BUCKET: edm-recipes
         with:
-          name: dcp_commercialoverlay
+          name: bpl_libraries

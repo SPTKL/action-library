@@ -4,7 +4,7 @@ output_format=$2
 if [ "$3" = "true" ] ; then s3="--s3"; else s3=''; fi
 if [ "$4" = "true" ] ; then compress="--compress"; else compress=''; fi
 if [ "$5" = "true" ] ; then latest="--latest"; else latest=''; fi
-if [ "$6" != "" ] ; then version="--version $4"; else version=''; fi
+if [ "$6" != "" ] ; then version="--version $6"; else version=''; fi
 
 for format in $2
 do

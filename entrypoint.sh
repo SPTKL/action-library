@@ -11,5 +11,5 @@ echo
 
 for format in $2
 do
-  library archive --name $1 $format $2 $3 $4 $5
+  library archive --name $1 -o $format $3 $4 $5
 done

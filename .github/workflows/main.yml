@@ -17,10 +17,10 @@ jobs:
         id: process
         with:
           name: dcp_commercialoverlay
-          latest: true
-          s3: true
+          latest: false
+          s3: false
           compress: true
-          output_format: shapefile csv pgdump
+          output_format: shapefile
 
       - name: show output
         run: |
@@ -35,5 +35,5 @@ jobs:
           s3: true
           compress: true
           output_format: shapefile csv pgdump
-          version: 20v7
+          version: 20v8
           

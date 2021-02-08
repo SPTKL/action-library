@@ -12,6 +12,6 @@ do
 done
 
 wait
-
-show=$(library show --name $1)
+library show --help
+show=$(library show $1)
 echo ::set-output name=show::$show

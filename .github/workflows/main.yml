@@ -32,7 +32,7 @@ jobs:
 
       - name: show output
         run: |
-          echo "${{ steps.process.output.show }}"
-          echo "${{ steps.process2.output.show }}"
+          echo "${{ steps.process.outputs.show }}"
+          echo "${{ steps.process2.outputs.show }}"
 
           

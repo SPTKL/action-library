@@ -29,6 +29,7 @@ jobs:
       - uses: SPTKL/action-library@main
         id: pluto
         with:
+          name: dcp_mappluto
           path: dcp_mappluto.yml
           latest: true
           s3: true

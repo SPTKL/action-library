@@ -13,7 +13,8 @@ done
 
 wait
 library show --help
-library show $1
 
-show=$(library show $1)
-echo ::set-output name=show::$show
+show=$(library show $1 --json)
+echo "$show"
+
+echo "::set-output name=show::$show"
